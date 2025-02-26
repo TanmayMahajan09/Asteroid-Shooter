@@ -5,11 +5,12 @@ public class SpaceShip : MonoBehaviour {
     [SerializeField] private InputManager inputManager;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Vector3 newDirection;
+    [SerializeField] private LookAtCursor lookAtCursor;
+    private Vector2 mousePosition;
     private float interpolationTime = 0.3f;
-    private int movementIterator = 30;
     private Vector3 moveDirection;
     private Vector3 oldDirection = Vector3.zero ;
-    private float smoothStep = Mathf.SmoothStep(5, 0, 0.5f);
+
     private Rigidbody2D rb;
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
@@ -17,7 +18,15 @@ public class SpaceShip : MonoBehaviour {
 
     private void Update() {
         HandleMovementnput();
+        HandleLookAtCursor();
     }
+
+    private void HandleLookAtCursor() {
+        mousePosition = inputManager.GetMouseCursor();
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        lookAtCursor.LookAt(mousePosition);
+    }
+
 
     private void HandleMovementnput() {
         Vector2 normalisedMovementVector = inputManager.GetNormalisedMovementVector();

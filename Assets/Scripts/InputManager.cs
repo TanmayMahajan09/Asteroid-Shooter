@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour {
 
     [SerializeField] private PlayerInputActions playerInputActions;
+    private Vector2 targetVector;
     public static InputManager Instance {  get; private set; }
     private void Awake () {
         Instance = this;
@@ -17,4 +19,8 @@ public class InputManager : MonoBehaviour {
         return inputVector;
     }
 
+    public Vector2 GetMouseCursor() {
+        targetVector = playerInputActions.Player.Cursor.ReadValue<Vector2>();
+        return targetVector;
+    }
 }
