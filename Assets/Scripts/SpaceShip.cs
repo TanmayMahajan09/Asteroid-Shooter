@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpaceShip : MonoBehaviour {
 
-    [SerializeField] private InputManager inputManager;
+    //[SerializeField] private InputManager inputManager;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Vector3 newDirection;
     [SerializeField] private LookAtCursor lookAtCursor;
@@ -14,22 +14,23 @@ public class SpaceShip : MonoBehaviour {
     private Rigidbody2D rb;
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
+       
     }
 
     private void Update() {
-        HandleMovementnput();
+        HandleMovementInput();
         HandleLookAtCursor();
     }
 
     private void HandleLookAtCursor() {
-        mousePosition = inputManager.GetMouseCursor();
+        mousePosition = InputManager.Instance.GetMouseCursor();
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         lookAtCursor.LookAt(mousePosition);
     }
 
 
-    private void HandleMovementnput() {
-        Vector2 normalisedMovementVector = inputManager.GetNormalisedMovementVector();
+    private void HandleMovementInput() {
+        Vector2 normalisedMovementVector = InputManager.Instance.GetNormalisedMovementVector();
         moveDirection = new Vector3 (normalisedMovementVector.x, normalisedMovementVector.y, 0);
         newDirection = moveDirection;
         if(newDirection != oldDirection) {
