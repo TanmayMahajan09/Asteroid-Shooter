@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private float destroyTimer = 10f;
+    [SerializeField] private float damage = 25f;
 
     private void Start() {
         rb.linearVelocity = transform.up * projectileSpeed;
@@ -18,7 +19,10 @@ public class Projectile : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log(collision.name);
+        Asteroid hitAsteroid = collision.GetComponent<Asteroid>();
+        if(hitAsteroid != null ) {
+            hitAsteroid.TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
 
