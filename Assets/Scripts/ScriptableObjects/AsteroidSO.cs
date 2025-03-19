@@ -4,7 +4,6 @@ using UnityEngine;
 public class AsteroidSO : ScriptableObject {
 
     public float health;
-    public Sprite sprite;
     
 
 
