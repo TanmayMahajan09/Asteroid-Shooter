@@ -169,4 +169,4 @@ MonoBehaviour:
   rb: {fileID: 5015350758968956655}
   projectileSpeed: 10
   destroyTimer: 10
-  damage: 25
+  damage: 20
