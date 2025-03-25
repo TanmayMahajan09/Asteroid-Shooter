@@ -402,8 +402,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidPrefabs:
   - {fileID: 8487549815963552648, guid: 74a3c01743361ce4e936147df795f7c2, type: 3}
+  - {fileID: 8487549815963552648, guid: ced61e430cc2f394ab6735a3af67756f, type: 3}
+  - {fileID: 8487549815963552648, guid: ced61e430cc2f394ab6735a3af67756f, type: 3}
+  - {fileID: 8487549815963552648, guid: 74a3c01743361ce4e936147df795f7c2, type: 3}
+  - {fileID: 8487549815963552648, guid: ced61e430cc2f394ab6735a3af67756f, type: 3}
+  - {fileID: 8487549815963552648, guid: edf636a0a35870840868825087cf3271, type: 3}
+  bigAsteroidSO: {fileID: 11400000, guid: a55aabc52e1901343863292378009850, type: 2}
   spawnInterval: 2
-  spawnRadius: 10
   player: {fileID: 2091728612}
   timer: 0
 --- !u!1 &1813864568

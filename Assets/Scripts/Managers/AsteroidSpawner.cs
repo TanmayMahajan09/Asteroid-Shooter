@@ -5,8 +5,8 @@ using UnityEngine;
 public class AsteroidSpawner : MonoBehaviour {
 
     [SerializeField] private GameObject[] asteroidPrefabs;
+    [SerializeField] private AsteroidSO bigAsteroidSO;
     [SerializeField] private float spawnInterval = 2f;
-    [SerializeField] private float spawnRadius = 20f;
     [SerializeField] private Transform player;
 
     [SerializeField] private float timer;
@@ -30,7 +30,13 @@ public class AsteroidSpawner : MonoBehaviour {
         Rigidbody2D rb = asteroid.GetComponent<Rigidbody2D>();
         if (rb != null) {
             Vector2 direction = (player.position - asteroid.transform.position).normalized;
-            rb.linearVelocity = direction * Random.Range(1f, 4f);
+            if(asteroid.GetComponent<Asteroid>().GetAsteroidSO() == bigAsteroidSO) {
+                rb.linearVelocity = direction * Random.Range(1f, 2f);
+            }
+            else {
+                rb.linearVelocity = direction * Random.Range(1f, 4f);
+            }
+            
         }
     }
 

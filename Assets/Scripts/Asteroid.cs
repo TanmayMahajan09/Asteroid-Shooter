@@ -30,4 +30,8 @@ public class Asteroid : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public AsteroidSO GetAsteroidSO() {
+        return asteroidSO;
+    }
+
 }
