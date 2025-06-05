@@ -19,11 +19,14 @@ public class Projectile : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        Asteroid hitAsteroid = collision.GetComponent<Asteroid>();
-        if(hitAsteroid != null ) {
-            hitAsteroid.TakeDamage(damage);
+        if(collision.GetComponent<Asteroid>()!= null) {
+            Asteroid hitAsteroid = collision.GetComponent<Asteroid>();
+            if (hitAsteroid != null) {
+                hitAsteroid.TakeDamage(damage);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        
     }
 
 }
