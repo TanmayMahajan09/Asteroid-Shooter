@@ -5,8 +5,9 @@ public class CursorManager : MonoBehaviour {
     public Vector2 hotspot;
     public CursorMode cursorMode = CursorMode.Auto;
 
-    void Start() {
+    private void Start() {
         hotspot = new Vector2(crosshairTexture.width / 2, crosshairTexture.height / 2);
         Cursor.SetCursor(crosshairTexture, hotspot, cursorMode);
     }
+
 }
